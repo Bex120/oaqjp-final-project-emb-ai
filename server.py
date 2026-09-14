@@ -5,10 +5,10 @@ from flask import Flask, render_template, request
 from EmotionDetection import emotion_detector
 
 
-app = Flask(__name__)
+APP = Flask(__name__)
 
 
-@app.route("/emotionDetector")
+@APP.route("/emotionDetector")
 def detect_emotion():
     """Analyze the text supplied by the web interface."""
     text_to_analyze = request.args.get("textToAnalyze")
@@ -29,11 +29,11 @@ def detect_emotion():
     )
 
 
-@app.route("/")
+@APP.route("/")
 def render_index_page():
     """Render the application's main page."""
     return render_template("index.html")
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    APP.run(host="0.0.0.0", port=5000)
